@@ -31,17 +31,17 @@ impl Args {
         match op {
             BinOp::Add(_op) => {
                 return parse_quote!(
-                    #left.wrapping_add(#right)
+                    #left.saturating_add(#right)
                 );
             }
             BinOp::Sub(_op) => {
                 return parse_quote!(
-                    #left.wrapping_sub(#right)
+                    #left.saturating_sub(#right)
                 );
             }
             BinOp::Mul(_op) => {
                 return parse_quote!(
-                    #left.wrapping_mul(#right)
+                    #left.saturating_mul(#right)
                 );
             }
             _ => {
@@ -66,17 +66,17 @@ impl Args {
         match op {
             BinOp::AddEq(_op) => {
                 return parse_quote!(
-                    #left = #left.wrapping_add(#right)
+                    #left = #left.saturating_add(#right)
                 );
             }
             BinOp::SubEq(_op) => {
                 return parse_quote!(
-                    #left = #left.wrapping_sub(#right)
+                    #left = #left.saturating_sub(#right)
                 );
             }
             BinOp::MulEq(_op) => {
                 return parse_quote!(
-                    #left = #left.wrapping_mul(#right)
+                    #left = #left.saturating_mul(#right)
                 );
             }
             _ => {
@@ -110,21 +110,21 @@ impl Fold for Args {
     }
 }
 
-/// Make addition and multiplication wrapping in the annotated function.
+/// Make addition and multiplication saturating in the annotated function.
 ///
 /// # Example
 ///
-/// ```rust,ignore
-/// #[wrapit]
-/// fn oops() -> bool {
+/// ```rust, ignore
+/// #[saturateit]
+/// fn oops() {
 ///     let a: u32 = std::u32::MAX;
 ///     let b: u32 = 2;
 ///     let r = a + b;
-///     r == 1
+///     assert_eq!(a, r)
 /// }
 /// ```
 #[proc_macro_attribute]
-pub fn wrappit(args: TokenStream, input: TokenStream) -> TokenStream {
+pub fn saturateit(args: TokenStream, input: TokenStream) -> TokenStream {
     let input = parse_macro_input!(input as ItemFn);
 
     // Get something to fold on.

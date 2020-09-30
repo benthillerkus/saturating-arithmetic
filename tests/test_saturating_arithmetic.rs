@@ -1,10 +1,10 @@
 #[allow(unused_imports)]
-extern crate wrapping_arithmetic;
-use wrapping_arithmetic::wrappit;
+extern crate saturating_arithmetic;
+use saturating_arithmetic::saturateit;
 
 #[test]
 fn test_mul() {
-    #[wrappit]
+    #[saturateit]
     fn mul() -> u32 {
         let a: u32 = std::u32::MAX;
         a * 2
@@ -14,7 +14,7 @@ fn test_mul() {
 
 #[test]
 fn test_add() {
-    #[wrappit]
+    #[saturateit]
     fn add() -> u32 {
         let a: u32 = std::u32::MAX;
         a + 2
@@ -25,7 +25,7 @@ fn test_add() {
 
 #[test]
 fn test_sub() {
-    #[wrappit]
+    #[saturateit]
     fn sub() -> u32 {
         let a: u32 = 0;
         a - 1
@@ -35,7 +35,7 @@ fn test_sub() {
 
 #[test]
 fn test_mul_assign() {
-    #[wrappit]
+    #[saturateit]
     fn mul() -> u32 {
         let mut a: u32 = std::u32::MAX;
         a *= 2;
@@ -46,7 +46,7 @@ fn test_mul_assign() {
 
 #[test]
 fn test_add_assign() {
-    #[wrappit]
+    #[saturateit]
     fn add() -> u32 {
         let mut a: u32 = std::u32::MAX;
         a += 2;
@@ -57,7 +57,7 @@ fn test_add_assign() {
 
 #[test]
 fn test_sub_assign() {
-    #[wrappit]
+    #[saturateit]
     fn sub() -> u32 {
         let mut a: u32 = 0;
         a -= 1;
@@ -73,7 +73,7 @@ fn test_mul_panic() {
         let a: u32 = std::u32::MAX;
         a * 2
     }
-    assert_eq!(0xfffffffeu32, mul());
+    assert_eq!(std::u32::MAX, mul());
 }
 
 #[test]
@@ -83,7 +83,7 @@ fn test_add_panic() {
         let a: u32 = std::u32::MAX;
         a + 2
     }
-    assert_eq!(1u32, add());
+    assert_eq!(std::u32::MAX, add());
     // TODO: assert_eq!(1u32, a + b as u32); won't work because the macro expansion get's in the way.
 }
 
@@ -95,7 +95,7 @@ fn test_mul_assign_panic() {
         a *= 2;
         a
     }
-    assert_eq!(0xfffffffeu32, mul());
+    assert_eq!(std::u32::MAX, mul());
 }
 
 #[test]
@@ -106,5 +106,5 @@ fn test_add_assign_panic() {
         a += 2;
         a
     }
-    assert_eq!(1u32, add());
+    assert_eq!(std::u32::MAX, add());
 }

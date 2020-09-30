@@ -1,17 +1,17 @@
 [package]
-name = "wrapping_arithmetic"
+name = "saturating_arithmetic"
 version = "0.1.0"
-authors = ["Franziskus Kiefer <franziskuskiefer@gmail.com>"]
+authors = ["Bent Hillerkus <benthillerkus@gmail.com>"]
 edition = "2018"
-repository = "https://github.com/franziskuskiefer/wrapping-arithmetic"
+repository = "https://github.com/ogierm/saturating-arithmetic"
 keywords = ["crypto", "arithmetic"]
 license = "Apache-2.0"
 readme = "README.md"
-description = "Proc macro #[wrappit] to rewrite operators into their wrapping equivalents."
+description = "Proc macro #[saturateit] to rewrite operators into their saturating equivalents."
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [lib]
-path = "src/wrapping.rs"
+path = "src/saturating.rs"
 proc-macro = true
 
 [dependencies]
