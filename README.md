@@ -31,7 +31,7 @@ fn mix(a: u32, b: u32, c: &[u32]) -> u32 {
     r
 }
 ```
-is rewritten to
+is rewritten into
 ```Rust
 fn mix(a: u32, b: u32, c: &[u32]) -> u32 {
     let mut r = a.saturating_add(b);
@@ -48,7 +48,8 @@ To your `Cargo.toml` under `[dependencies]` add:
 [dependencies]
 saturating_arithmetic = "0.1"
 
-# If you want this to work on your own types, you'll need this crate too:
+# If you want this to work on your own types,
+# you'll need this crate too:
 num-traits = "0.2"
 ```
 
@@ -61,7 +62,8 @@ extern crate num_traits;
 and then `use` them in your code.
 ```rust
 use saturating_arithmetic::saturateit;
-use num_traits::{SaturatingAdd, SaturatingMul, SaturatingSub};
+use num_traits::{SaturatingAdd,
+  SaturatingMul, SaturatingSub};
 ```
 
 ## Usage
