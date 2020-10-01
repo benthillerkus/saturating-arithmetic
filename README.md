@@ -2,7 +2,7 @@
 
 ## Description
 This crate provides a procedural macro that rewrites arithmetic operators `+,-,*` as well as their assigning versions `+=,-=,*=` into their saturating equivalents `saturating_add, saturating_sub, saturating_mul`.
-This is, for example, useful for quickly *safening* older code, if you can live with the performance penalty caused by the checks, that is.
+This is, for example, useful for quickly *safening* older code, if you can live with the performance penalty caused by the checks that is.
 
 ### Links
 [GitHub](https://github.com/ogierm/saturating-arithmetic)  
