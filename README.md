@@ -43,7 +43,7 @@ fn mix(a: u32, b: u32, c: &[u32]) -> u32 {
 ```
 
 ## Installation
-To your `Cargo.toml` under `[dependencies]` add:
+To your `Cargo.toml` insert under `[dependencies]`
 ```toml
 [dependencies]
 saturating_arithmetic = "0.1"
@@ -53,13 +53,13 @@ saturating_arithmetic = "0.1"
 num-traits = "0.2"
 ```
 
-Then in your entry point (`main.rs` or `lib.rs`) add
+and then in your entry point (`main.rs` or `lib.rs`) you can add
 ```rust
 extern crate saturating_arithmetic;
 extern crate num_traits;
 ```
 
-and then `use` them in your code.
+after that `use` them in your code.
 ```rust
 use saturating_arithmetic::saturateit;
 use num_traits::{SaturatingAdd,
