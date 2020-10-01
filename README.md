@@ -1,11 +1,11 @@
-<img src="https://forthebadge.com/images/badges/works-on-my-machine.svg" height=23px><a href="https://www.apache.org/licenses/LICENSE-2.0"><img src="https://img.shields.io/crates/l/saturating_arithmetic?style=for-the-badge" height=23px></a>
+<img src="https://forthebadge.com/images/badges/works-on-my-machine.svg" height=23px> <a href="https://www.apache.org/licenses/LICENSE-2.0"><img src="https://img.shields.io/crates/l/saturating_arithmetic?style=for-the-badge" height=23px></a>
 
 ## Description
 This crate provides a procedural macro that rewrites arithmetic operators `+,-,*` as well as their assigning versions `+=,-=,*=` into their saturating equivalents `saturating_add, saturating_sub, saturating_mul`.
 This is, for example, useful for quickly *safening* older code, if you can live with the performance penalty caused by the checks, that is.
 
 ### Links
-[GitHub](https://github.com/ogierm/saturating-arithmetic)
+[GitHub](https://github.com/ogierm/saturating-arithmetic)  
 [Crates.io](https://crates.io/crates/saturating_arithmetic)
 
 ## Contents
@@ -89,7 +89,7 @@ In my experience you can ignore these.
 
 ----
 ## Disclaimer
-<img src="https://forthebadge.com/images/badges/ctrl-c-ctrl-v.svg" height=23px><a href="https://unmaintained.tech"><img src="https://unmaintained.tech/badge.svg" height=23px></a>    
+<img src="https://forthebadge.com/images/badges/ctrl-c-ctrl-v.svg" height=23px> <a href="https://unmaintained.tech"><img src="https://unmaintained.tech/badge.svg" height=23px></a>    
 
 I forked this from [wrapping_arithmetic](https://crates.io/crates/wrapping_arithmetic), because I needed it (kind of). I have not clue how this actually works besides *procedural macro magic* and *those fat dependencies sure do something*. Feel free to create an Issue or a PR, but I can't promise that I'll be able to help you.
 
